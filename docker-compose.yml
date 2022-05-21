@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  collectionpostgres:
+    container_name: collection-postgres
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=bZ+XdvLx45M=
+      - POSTGRES_DB=collectiondb
+    ports:
+      - "5436:5436"
+    command: -p 5436
+    expose:
+      - 5436
+  collectionmicroservice:
+    container_name: collection-microservice
+    depends_on:
+      - collectionpostgres
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8082:8082"
+    expose:
+      - 8082
+#    networks:
+#      - inter-server-communication
+#
+#networks:
+#  inter-server-communication:
+#    external: true
