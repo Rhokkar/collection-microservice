@@ -22,11 +22,3 @@ services:
       dockerfile: src/main/docker/Dockerfile.jvm
     ports:
       - "8082:8082"
-    expose:
-      - 8082
-#    networks:
-#      - inter-server-communication
-#
-#networks:
-#  inter-server-communication:
-#    external: true
