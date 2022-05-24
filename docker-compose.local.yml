@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  collectionmicroservice:
+    networks:
+      - inter_server_connection
+
+networks:
+  inter_server_connection:
+    name: inter_server_connection
+    driver: bridge

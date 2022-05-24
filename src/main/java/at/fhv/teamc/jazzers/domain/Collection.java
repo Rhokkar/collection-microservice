@@ -2,10 +2,8 @@ package at.fhv.teamc.jazzers.domain;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import java.util.List;
+import javax.persistence.*;
+import java.util.*;
 
 @Entity
 public class Collection extends PanacheEntity {
@@ -24,7 +22,7 @@ public class Collection extends PanacheEntity {
         if (collection == null) {
             collection = new Collection();
             collection.ownerName = ownerName;
-            collection.products = List.of();
+            collection.products = new ArrayList<>();
             collection.persist();
         }
 
